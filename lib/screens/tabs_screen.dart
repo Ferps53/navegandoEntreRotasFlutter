@@ -33,7 +33,7 @@ class _TabsScreenState extends State<TabsScreen> {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: _screens[_selectedScreenIndex]['screen'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
