@@ -3,20 +3,32 @@ import 'package:navegando_entre_telas/models/settings.dart';
 import 'package:navegando_entre_telas/widgets/main_drawer.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  final Function(Settings) onSettingChanged;
+  final Settings settings;
+
+  const SettingsScreen(this.onSettingChanged, this.settings, {super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  var settings = Settings();
+  late Settings settings;
+
+  @override
+  void initState() {
+    super.initState();
+    settings = widget.settings;
+  }
 
   Widget _createSwitch(
       String title, String subtitle, bool value, Function(bool) onChanged) {
     return SwitchListTile.adaptive(
       value: value,
-      onChanged: onChanged,
+      onChanged: (value) {
+        onChanged(value);
+        widget.onSettingChanged(settings);
+      },
       subtitle: Text(subtitle),
       title: Text(title),
     );
