@@ -8,7 +8,7 @@ import 'package:navegando_entre_telas/utils/app_routes.dart';
 import 'screens/categories_meals_screen.dart';
 import 'package:navegando_entre_telas/models/meal.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
